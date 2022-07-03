@@ -1,0 +1,145 @@
+.verde {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(45, 122, 53);
+    border: solid 2px rgb(19, 53, 23);
+    border-radius: 50%;
+}
+
+.rojo {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(183, 25, 25);
+    border: solid 2px rgb(51, 6, 6);
+    border-radius: 50%;
+}
+
+
+.inactivo {
+    width: 30px;
+    height: 30px;
+    border: solid 2px #000;
+    border-radius: 15px;
+    background-color: rgb(247, 204, 117);
+}
+
+.dedo0, .dedo7 {
+    width: 28px;
+    height: 80px;
+    border: solid 2px #000;
+    border-radius: 15px;
+    background-color: rgb(247, 204, 117);
+}
+
+.dedo1, .dedo6  {
+    width: 30px;
+    height: 100px;
+    border: solid 2px #000;
+    border-radius: 15px;
+    background-color: rgb(247, 204, 117);
+}
+.dedo2, .dedo5  {
+    width: 28px;
+    height: 83px;
+    border: solid 2px #000;
+    border-radius: 15px;
+    background-color: rgb(247, 204, 117);
+}
+.dedo3, .dedo4 {
+    width: 25px;
+    height: 65px;
+    border: solid 2px #000;
+    border-radius: 15px;
+    background-color: rgb(247, 204, 117);
+}
+
+.botoneraa {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 150px;
+    margin: 20px auto 0 auto;
+    background-color: rgba(36, 15, 98, 0.8);
+    border: solid 2px rgba(22, 10, 59, 0.8);
+    border-radius: 10px 10px 0 0;
+}
+
+.displayy {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 200px;
+    margin: 0 auto 0 auto;
+    background-color: rgba(36, 15, 98, 0.8);
+    border: solid 2px rgba(22, 10, 59, 0.8);
+}
+
+.mano1, .mano2 {
+    width: 100px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.btnMano1, .btnMano2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 40%;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 80px;
+    margin: 0 auto 30px auto;
+    background-color: rgba(36, 15, 98, 0.8);
+    border: solid 2px rgba(22, 10, 59, 0.8);
+    border-radius: 0 0 10px 10px;
+}
+
+.tempoDownBtn, .tempoUpBtn {
+    width: 70px;
+    padding: 10px;
+    background-color: rgb(30, 12, 85);
+    border: solid 3px rgb(11, 4, 31);
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.playBtn {
+    width: 60px;
+    padding: 5px;
+    background-color: rgb(45, 122, 53);
+    border: solid 3px rgb(19, 53, 23);
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.centro {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tempo {
+    width: 70px;
+    padding: 5px;
+    border: solid 2px rgb(11, 4, 31);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+#tempo {
+    font-size: 30px;
+}

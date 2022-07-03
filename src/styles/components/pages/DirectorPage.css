@@ -1,0 +1,53 @@
+.controls {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 80px;
+    margin: 0 auto 30px auto;
+    background-color: rgba(36, 15, 98, 0.8);
+    border: solid 2px rgba(22, 10, 59, 0.8);
+    border-radius: 0 0 10px 10px;
+}
+
+.tempoDownBtn, .tempoUpBtn {
+    width: 70px;
+    padding: 10px;
+    background-color: rgb(30, 12, 85);
+    border: solid 3px rgb(11, 4, 31);
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.playBtn {
+    width: 60px;
+    padding: 5px;
+    background-color: rgb(45, 122, 53);
+    border: solid 3px rgb(19, 53, 23);
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.centro {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tempo {
+    width: 70px;
+    padding: 5px;
+    border: solid 2px rgb(11, 4, 31);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+#tempo {
+    font-size: 30px;
+}
+
