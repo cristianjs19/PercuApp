@@ -1,87 +1,73 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import '../styles/components/Metronome.css';
+import { AiFillPlusCircle, AiOutlineMinusCircle } from "react-icons/ai"
 
-const click1 = "//daveceddia.com/freebies/react-metronome/click1.wav";
-const click2 = "//daveceddia.com/freebies/react-metronome/click2.wav";
+const click11 = "//daveceddia.com/freebies/react-metronome/click1.wav";
+const click22 = "//daveceddia.com/freebies/react-metronome/click2.wav";
 
-class Metronome extends Component {
-  
+const Metronome = () => {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [count, setCount] = useState(0)
+  const [bpm, setBpm] = useState(60)
+  const [beatsPerMeasure, setBeatsPerMeasure] = useState(4)
 
-  constructor(props) {
-    super(props);
+  const click1 = new Audio(click11);
+  const click2 = new Audio(click22);
 
-    this.state = {
-      isPlaying: false,
-      count: 0,
-      bpm: 60,
-      beatsPerMeasure: 4
-    };
-
-    this.click1 = new Audio(click1);
-    this.click2 = new Audio(click2);
-  }
-
-  handleInputChange = event => {
-    const bpm = event.target.value;
-
-    if (this.state.isPlaying) {
-      // stop old timer and start a new one
-      clearInterval(this.timer);
-      this.timer = setInterval(this.playClick, (60 / bpm) * 1000);
-
-      // set the new bpm
-      // and reset the beat counter
-      this.setState({
-        count: 0,
-        bpm
-      });
-    } else {
-      // otherwise, just update the bpm
-      this.setState({ bpm });
-    }
-  };
-
-  playClick = () => {
-    const { count, beatsPerMeasure } = this.state;
+  const playClick = () => {
+    // const { count, beatsPerMeasure } = this.state;
 
     // alternate click sounds
     if (count % beatsPerMeasure === 0) {
-      this.click2.play();
+      click2.play();
     } else {
-      this.click1.play();
+      click1.play();
     }
 
     // keep track of which beat we're on
-    this.setState(state => ({
-      count: (state.count + 1) % state.beatsPerMeasure
-    }));
+    // this.setState(state => ({
+    //   count: (state.count + 1) % state.beatsPerMeasure
+    // }));
+    setCount((count + 1) % beatsPerMeasure)
   };
 
-  startStop = () => {
-    if (this.state.isPlaying) {
-      // stop the timer
+  const handleInputChange = event => {
+    const target_bpm = event.target.value;
+
+    if (isPlaying) {
+      // stop old timer and start a new one
       clearInterval(this.timer);
-      this.setState({
-        isPlaying: false
-      });
+      this.timer = setInterval(playClick(), (60 / bpm) * 1000);
+
+      // set the new bpm
+      // and reset the beat counter
+      setCount(0)
+      setBpm(target_bpm)
     } else {
-      // start a timer with current bpm
-      this.timer = setInterval(this.playClick, (60 / this.state.bpm) * 1000);
-      this.setState(
-        {
-          count: 0,
-          isPlaying: true
-          // play a click immediately (after setState finishes)
-        },
-        this.playClick
-      );
+      // otherwise, just update the bpm
+      setBpm(target_bpm)
     }
   };
 
-  render() {
-    const { isPlaying, bpm } = this.state;
+  const startStop = () => {
+    console.log("here");
+    let lapse = (60 / bpm) * 1000
+    console.log(lapse);
+    let timer
+    if (isPlaying) {
+      // stop the timer
+      clearInterval(timer);
+      setIsPlaying(!isPlaying)
+    } else {
+      // start a timer with current bpm
+      timer = setInterval(playClick(), lapse)
+      setCount(0)
+      setIsPlaying(!isPlaying)
+      playClick()
+    }
+  };
 
-    return (
+  return (
     <div className="controls">  
       <div className="tempo">
                 <h4>Tempo</h4>
@@ -89,17 +75,27 @@ class Metronome extends Component {
             </div>
         <div className="bpm-slider">
           <input
+            type="input"
+            value={bpm}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="bpm-slider">
+          <AiFillPlusCircle onClick={()=> setBpm(bpm + 1)} />
+          <AiOutlineMinusCircle onClick={()=> setBpm(bpm - 1)} />
+        </div>
+        <div className="bpm-slider">
+          <input
             type="range"
             min="20"
             max="240"
             value={bpm}
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
           />
         </div>
-        <button className="playBtn" onClick={this.startStop}>{isPlaying ? "Stop" : "Start"}</button>
+        <button className="playBtn" onClick={startStop}>{isPlaying ? "Stop" : "Start"}</button>
     </div>
     );
-  }
 }
 
 export default Metronome;
