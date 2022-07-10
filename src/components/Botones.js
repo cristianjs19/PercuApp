@@ -74,7 +74,7 @@ export default function Botones() {
       }
     });
   };
-  console.log(seleccionados);
+  // console.log(seleccionados);
   return (
     <div>
       <div className="botonera">
